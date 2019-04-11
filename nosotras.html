@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>El Suiche-Contactenos</title>
+
+
+	<meta name="El suiche" content="El Suiche" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/style2.css" />
+	<script src="js/modernizr-custom.js"></script>
+</head>
+
+<body class="demo-2">
+	<div class="container">
+		<header class="codrops-header">
+			<div class="codrops-links">
+				<img src="img/original/elsuiche.jpg" />
+			</div>
+			
+			<nav class="codrops-demos">
+			
+				<a class="current-demo" href="index.html">Inicio</a>
+				<a href="nosotras.html">Nosotrxs</a>
+				<a href="contactenos.html">Contactenos</a>
+			
+			</nav>
+		</header>
+
+
+<div>   <h2> El Suiche </h2>
+
+ <p>  Una iniciativa que se gesta a mediados de 2005, alumbra la germinación en agosto de 2006, como un ejercicio de experimentación sonora a través de una complicidad y relación entre artistas, bandas emergentes, bares y otros espacios para la realización de los conciertos y por supuesto, un público, logrando así, 111 versiones que han permitido tejer diferentes proyectos musicales en medio de una constante exploración.</p>
+<p>
+Todo este trayecto ha dejado valiosos resultados, los cuales alientan a proyectar El Suiche como un proceso de fortalecimiento de iniciativas artísticas de experimentación musical y al mismo tiempo ser un proceso de formación de públicos, producción de contenidos y gestión de conocimiento a partir de la música. </p> </div>
+		<div class="content">
+			<div class="grid">
+                
+            
+
+             <!-- 
+			<!-- /grid -->
+			<div class="preview">
+				<button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+				<div class="description description--preview"></div>
+			</div>
+			<!-- /preview -->
+		</div>
+	
+		
+	</div>
+	<!-- /container -->
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script src="js/classie.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		(function() {
+			var support = { transitions: Modernizr.csstransitions },
+				// transition end event name
+				transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+				transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+				onEndTransition = function( el, callback ) {
+					var onEndCallbackFn = function( ev ) {
+						if( support.transitions ) {
+							if( ev.target != this ) return;
+							this.removeEventListener( transEndEventName, onEndCallbackFn );
+						}
+						if( callback && typeof callback === 'function' ) { callback.call(this); }
+					};
+					if( support.transitions ) {
+						el.addEventListener( transEndEventName, onEndCallbackFn );
+					}
+					else {
+						onEndCallbackFn();
+					}
+				};
+
+			new GridFx(document.querySelector('.grid'), {
+				imgPosition : {
+					x : -0.5,
+					y : 1
+				},
+				onOpenItem : function(instance, item) {
+					instance.items.forEach(function(el) {
+						if(item != el) {
+							var delay = Math.floor(Math.random() * 50);
+							el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+							el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+							el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+							el.style.transform = 'scale3d(0.1,0.1,1)';
+							el.style.opacity = 0;
+						}
+					});
+				},
+				onCloseItem : function(instance, item) {
+					instance.items.forEach(function(el) {
+						if(item != el) {
+							el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+							el.style.transition = 'opacity .4s, transform .4s';
+							el.style.WebkitTransform = 'scale3d(1,1,1)';
+							el.style.transform = 'scale3d(1,1,1)';
+							el.style.opacity = 1;
+
+							onEndTransition(el, function() {
+								el.style.transition = 'none';
+								el.style.WebkitTransform = 'none';
+							});
+						}
+					});
+				}
+			});
+		})();
+	</script>
+</body>
+
+</html>
